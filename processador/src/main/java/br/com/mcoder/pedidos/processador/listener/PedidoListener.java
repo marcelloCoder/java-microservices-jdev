@@ -17,6 +17,6 @@ public class PedidoListener {
         pedido.setStatus(Status.PROCESSADO);
         logger.info("Pedido processado: {}",pedido.toString() );
     }
-
+///
 
 }
