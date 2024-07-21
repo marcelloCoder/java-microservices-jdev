@@ -4,6 +4,7 @@ services:
   rabbitmq:
     image: rabbitmq:3.10.5-management
     container_name: rabbitmq
+    restart: unless-stopped
     environment:
       RABBITMQ_DEFAULT_USER: 'rabbitmq'
       RABBITMQ_DEFAULT_PASS: 'rabbitmq'
@@ -14,6 +15,26 @@ services:
       - rabbitmq_data:/var/lib/rabbitmq
       - rabbitmq_log:/var/lib/rabbitmq
 
+  mailhog:
+      image: mailhog/mailhog:latest
+      container_name: mailhog
+      ports:
+        - '1025:1025'
+        - '8025:8025'
+
+  postgres:
+    image: postgres:15.7
+    restart: unless-stopped
+    container_name: postgresql-15.7
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
 volumes:
+  postgres_data:
   rabbitmq_data:
   rabbitmq_log:
