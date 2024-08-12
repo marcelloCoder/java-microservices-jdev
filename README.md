@@ -21,4 +21,4 @@ modernos, além de estar preparada para monitoramento e deploy em ambientes de p
 
 1. Clone o repositório.
    ```bash
-   git clone https://github.com/marcellovieira/meu-projeto.git
+   git clone https://github.com/marcelloCoder/java-microservices-jdev.git
